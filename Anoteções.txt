@@ -1,0 +1,27 @@
+-- Laravel Tips --
+-- Projeto da UpInside com Gustavo Web --
+
+Instalações
+
+composer create-project --prefer-dist laravel/laravel blog "6.*"
+
+
+-- Artisan Comanders --
+php artisan make:controller UserController -> Cria a controladora UserController
+
+php artisan make:controller Form\TestController -> Cria controller e diretório
+
+php artisan migrate -> Cria todas tabelas no banco de dados conectado.
+
+php artisan serve -> Inicia um servidor de desenvolvimento em http://localhost:8000.
+
+php artisan route:list -> Lista todas as rotas
+
+php artisan make:controller Form\Testcontroller --resource --model=User
+
+
+
+
+MVC - MODEL VIEW CONTROLLER
+O navegador chama a routes, que chama a controller que tem acesso a model e a view. A model é a unica que tem acesso ao banco de dados e só tem contato com a contoller.
+A controler tem acesso a view e a model. A view retorna o conteúdo para o navegador.
