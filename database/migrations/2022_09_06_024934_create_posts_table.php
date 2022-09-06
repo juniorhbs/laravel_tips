@@ -15,14 +15,14 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('author');
+//            $table->unsignedBigInteger('author');
             $table->string('title');
             $table->string('slug');
             $table->string('subtitle');
             $table->text('content');
             $table->timestamps();
 
-            $table->foreign('author')->references('id')->on('users')->onDelete('CASCADE');
+//            $table->foreign('author')->references('id')->on('users')->onDelete('CASCADE');
             //foreign = chave estrangeira
             //references = indica a coluna que fará o relacionamento e devem ser do mesmo tipo
             //on = indica qual tabela deseja se relacionar
