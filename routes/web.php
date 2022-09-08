@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', 'PostController@showForm');
+Route::get('/', function (){
+    return view('welcome');
+});
+
+Route::resource('usuarios', 'Form\TestController')->names('user')->parameters(['usuarios'=> 'user']);
+
+
+//Route::get('/', 'PostController@showForm')->name('showForm');
 Route::post('/debug', 'PostController@debug')->name('debug');
+Route::get('/list', 'PostController@listPosts')->name('listPosts');
+
+
 
 

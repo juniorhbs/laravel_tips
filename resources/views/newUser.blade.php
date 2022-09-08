@@ -22,5 +22,7 @@
     <input type="submit" value="Cadastrar Usuário">
 </form>
 
+<a href="{{ route('user.index') }}">Lista de Usuários</a>
+
 </body>
 </html>

@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //Traduzindo parametros
         Route::resourceVerbs([
            'create' => 'novo',
            'edit' => 'editar'

@@ -33,4 +33,9 @@ class PostController extends Controller
         return redirect()->back();
 //        $post->create($request->except(['_token']));  Desse forma da erro, devido a forma insegura de persistencia.
     }
+
+    public function listPosts()
+    {
+
+    }
 }

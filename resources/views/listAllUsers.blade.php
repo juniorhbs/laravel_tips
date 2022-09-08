@@ -32,5 +32,6 @@
     </tr>
     @endforeach
 </table>
+<a href="{{ route('user.create') }}">Cadastrar Usuário</a>
 </body>
 </html>

@@ -35,15 +35,15 @@ class TestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = Hash::make($request->get('password'));
         $user->save();
 
         return redirect()->route('user.index');
@@ -52,12 +52,12 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\User $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
-        return view('listUser', [
+        return view('listuser', [
             'user' => $user
         ]);
     }
@@ -65,7 +65,7 @@ class TestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\User $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -78,19 +78,18 @@ class TestController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\User $user
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
     {
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
 
-        if(!empty($request->password)){
-            $user->password = Hash::make($request->password);
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->get('password'));
         }
-
         $user->save();
 
         return redirect()->route('user.index');
@@ -99,7 +98,7 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\User $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
