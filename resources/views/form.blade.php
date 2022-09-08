@@ -23,5 +23,10 @@
     <input type="submit" value="Cadastrar Artigo">
 
 </form>
+
+@foreach($posts as $post)
+    <p>{!! $post->title !!}</p>
+@endforeach
+
 </body>
 </html>

@@ -12,6 +12,7 @@ class Post extends Model
 
 
     //O método deve seguir exatamente essa estrutura com o nome do campo a ser setado
+    //Mutator
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;

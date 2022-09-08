@@ -10,21 +10,27 @@ class PostController extends Controller
     //Nome do método deve ser o mesmo que o informado na rota.
     public function showForm()
     {
+        $posts = Post::all();
+
         //Nome da view deve ser igual ao arquivo criado dentro do diretório views.
-        return view('form');
+        return view('form', [
+            'posts' => $posts
+        ]);
     }
 
     public function debug(Request $request)
     {
-//        dd($request->all());  O método all pega todas as posições do formulário
-//        dd($request->only(['content']));  O método all pega todas as posições do formulário
-        dd($request->except(['_token']));  // O método except permite informar campos que não são desejados persistirem no db
+       //dd($request->all());  O método all pega todas as posições do formulário
+       //dd($request->only(['content']));  O método all pega todas as posições do formulário
+//        dd($request->except(['_token']));  // O método except permite informar campos que não são desejados persistirem no db
+
 
         $post = new Post();
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
-        $post->content = $request->content;
+        $post->content = $request->get('content'); //Sempre utilizar get para persistir.
         $post->save();
+        return redirect()->back();
 //        $post->create($request->except(['_token']));  Desse forma da erro, devido a forma insegura de persistencia.
     }
 }
